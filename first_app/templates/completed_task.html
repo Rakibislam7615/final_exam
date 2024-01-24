@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="width:50%; margin:auto;" class="bg-primary">
+    <h1 style="text-align: center; margin:10px">COMPLETED TASKS</h1>
+</div>
+<div style="width: 70%; margin:auto">
+<table class="table table-bordered">
+    <thead>
+       <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        
+       </tr>
+    </thead>
+    <tbody>
+        {% for item in completed_task %}
+        <tr>
+            <td>{{item.title}}</td>
+            <td>{{item.description}}</td>
+            <td>completed</td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

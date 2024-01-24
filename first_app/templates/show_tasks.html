@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="width:50%; margin:auto;" class="bg-primary">
+    <h1 style="text-align: center; margin:10px">TASKS</h1>
+</div>
+<div style="width: 70%; margin:auto">
+<table class="table table-bordered">
+    <thead>
+       <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Actions</th>
+       </tr>
+    </thead>
+    <tbody>
+        {% for item in task %}
+        <tr>
+            <td>{{item.title}}</td>
+            <td>{{item.description}}</td>
+            <td>incomplete</td>
+            <td>
+                <a href="{% url 'delete_task' id=item.id %}" class="btn btn-danger btn-sm">delete</a>
+                <a href="{% url 'edit_task' id=item.id %}" class="btn btn-primary btn-sm">edit</a>
+                <a href="{% url 'complete_task' id=item.id %}" class="btn btn-success btn-sm">complete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}
